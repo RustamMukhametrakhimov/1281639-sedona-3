@@ -1,7 +1,7 @@
 # Личный проект «Седона»
 
 * Студент: [Рустам M](https://up.htmlacademy.ru/htmlcss-individual/3/user/1281639).
-* Наставник: `Неизвестно`.
+* Наставник: [Ирина Антипина](https://htmlacademy.ru/profile/id2108789).
 
 ---
 
