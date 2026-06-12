@@ -2,6 +2,7 @@
 
 * Студент: [Рустам M](https://up.htmlacademy.ru/htmlcss-individual/3/user/1281639).
 * Наставник: [Ирина Антипина](https://htmlacademy.ru/profile/id2108789).
+* Сайт: [Личный проект «Седона»](https://rustammukhametrakhimov.github.io/1281639-sedona-3/)
 
 ---
 
