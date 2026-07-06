@@ -50,13 +50,19 @@ html {
 }
 
 body {
-  width: 1200px;
-  margin: 0 auto;
   font-family: "PT Sans";
   font-style: normal;
+  height: 100%;
   background-color: var(--bg-basic);
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -191,7 +197,16 @@ body {
 
 /* блок header */
 .page-header {
+  display: flex;
+  justify-content: start;
+  padding: 0 70px;
+  height: 64px;
   background-color: var(--bg-basic);
+}
+
+.navigation-menu {
+  margin-left: 30px;
+  margin-right: auto;
 }
 
 .navigation-menu-list {
@@ -250,6 +265,9 @@ body {
 
 /* блок main */
 /* страница index.html */
+.main {
+  flex-grow: 1;
+}
 /* секция hero */
 .hero {
   display: block;
@@ -280,14 +298,29 @@ body {
 /* секция advantages */
 .advantages {
   text-align: center;
+
 }
 
+.advantages-header {
+  height: 261px;
+  padding: 70px 270px;
+
+}
 .advantages-list {
+  margin: 0;
+  padding: 0;
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
 }
 
+.advantages-item {
+  width: 33.3%;
+  height: 385px;
+}
 
 .advantages-item__with-picture-right {
+  width: 100%;
   background-color: var(--bg-main);
 }
 
@@ -300,12 +333,23 @@ body {
 }
 
 .advantages-item__with-picture-left {
+  width: 100%;
   background-color: var(--bg-main);
 }
 
 /* секция service */
 .service {
   text-align: center;
+}
+
+.service-header {
+  height: 246px;
+  padding: 64px 345px;
+}
+.service-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .service-item {
@@ -376,6 +420,7 @@ body {
   display: block;
   width: 1200px;
   height: 412px;
+  padding: 35px 70px 70px;
   background-image: url("../images/cataloge-filter.jpg");
 }
 
@@ -397,11 +442,42 @@ body {
   background-position: center center;
 }
 
+.catalog-filter-form {
+  display: flex;
+}
+
+.form-group {
+  margin: 0;
+  margin-right: 70px;
+  padding: 0;
+  width: 150px;
+  height: 157px;
+  border:none;
+}
+
+.form-group-cost {
+  margin-left: 140px;
+}
+
+.form-group-wrapper {
+  width: 150px;
+  height: 157px;
+}
+
 .button__cataloge-filter {
   width: 191px;
 }
 
 /* секция cataloge */
+.cataloge {
+  padding: 50px 70px 60px;
+}
+
+.cataloge-header {
+  display: flex;
+  height: 50px;
+  margin-bottom: 40px;
+}
 
 .card-view-list {
   list-style: none;
@@ -434,7 +510,18 @@ body {
 }
 
 .card-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   list-style: none;
+}
+
+.card-item {
+  display: block;
+  width: 340px;
+  height: 440px;
 }
 
 .card-link {
@@ -458,6 +545,10 @@ body {
 }
 
 .pagination-list {
+  margin: 0;
+  margin-top: 80px;
+  padding: 0;
+  display: flex;
   list-style: none;
 }
 
@@ -488,8 +579,10 @@ body {
 
 /* блок footer */
 .page-footer {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   height: 120px;
+  padding: 40px 70px 30px;
 }
 
 .social-list {
