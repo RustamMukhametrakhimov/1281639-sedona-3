@@ -65,7 +65,7 @@
       <main class="main" data-test="main">
         <!-- Основное содержимое страницы -->
 
-        <header class="catalog-header" data-test="filter">
+        <section class="catalog-section-header" data-test="filter">
 
           <h1 class="title title__big text__on-bg">Гостиницы Седоны</h1>
 
@@ -92,7 +92,7 @@
             action="https://echo.htmlacademy.ru/">
 
             <fieldset class="form-group">
-              <legend class="title title__smaller text__on-bg">
+              <legend class="title title__smaller text__on-bg form-group-legend">
                 Инфраструктура:
               </legend>
               <label class="text__checkbox text__on-bg">
@@ -110,7 +110,7 @@
             </fieldset>
 
             <fieldset class="form-group">
-              <legend class="title title__smaller text__on-bg">
+              <legend class="title title__smaller text__on-bg form-group-legend">
                 Тип жилья:
               </legend>
               <label class="text__checkbox text__on-bg">
@@ -128,24 +128,29 @@
             </fieldset>
 
             <fieldset class="form-group form-group-cost">
-              <legend class="title title__smaller text__on-bg">
+              <legend class="title title__smaller text__on-bg form-group-legend">
                 Стоимость, ₽:
               </legend>
-              <label class="text__input text__on-bg">
-                <input type="number" min="0" max="100000" step="100"
-                  placeholder="0" name="min-price" id="min-price" required>
-                От
-              </label>
-              <label class="text__input text__on-bg">
-                <input type="number" min="0" max="100000" step="100"
-                  placeholder="9000" name="max-price" id="max-price" required>
-                До
-              </label>
-              <div class="range-wrapper">
-                <input type="range" name="min-price-range" value="0"
-                  id="min-price-range" min="0" max="100000" step="100">
-                <input type="range" name="max-price-range" value="9000"
-                  id="max-price-range" min="0" max="100000" step="100">
+              <div class="form-group-cost-label-wrapper">
+                <label class="text__input text__on-bg label-cost">
+                  <input class="input-cost" type="number" min="0" max="100000" step="100"
+                    placeholder="0" name="min-price" id="min-price" required>
+                    <span class="input-text">От</span>
+                </label>
+                <label class="text__input text__on-bg label-cost">
+                  <input class="input-cost" type="number" min="0" max="100000" step="100"
+                    placeholder="9000" name="max-price" id="max-price" required>
+                    <span class="input-text">До</span>
+                </label>
+              </div>
+
+              <div class="form-group-cost-range-wrapper">
+                <input class="form-group-range" type="range"
+                  name="min-price-range" value="0" id="min-price-range"
+                  min="0" max="100000" step="100">
+                <input class="form-group-range" type="range"
+                  name="max-price-range" value="9000" id="max-price-range"
+                  min="0" max="100000" step="100">
               </div>
             </fieldset>
 
@@ -160,15 +165,17 @@
 
           </form>
 
-        </header>
+        </section>
 
-        <section class="cataloge" data-test="catalog">
+        <section class="catalog" data-test="catalog">
 
-          <header class="cataloge-header">
+          <header class="catalog-header">
 
-            <h2 class="title title__medium">Найдено гостиниц: 38</h2>
+            <h2 class="title title__medium catalog-header-title">
+              Найдено гостиниц: 38
+            </h2>
 
-            <select class="text text__small" name="catalog-sort"
+            <select class="text text__small catalog-select" name="catalog-sort"
               id="catalog-sort" class="catalog-sort">
               <option value="from_min_price">Сначала дешевые</option>
               <option value="from_max_price">Сначала дорогие</option>
@@ -220,13 +227,12 @@
                 type="button">
                 В избранное
               </button>
-              <p class="card-rating">
-                <span class="visually-hidden">
+              <p class="visually-hidden">
                   4 звезды
-                </span>
-                <span class="card-rating__text button button__text-regular">
-                  Рейтинг: 8,5
-                </span>
+              </p>
+              <p class="card-rating__text button button__text-regular">
+                Рейтинг: 8,5
+              </p>
               </p>
             </li>
 
@@ -250,13 +256,11 @@
                 type="button">
                 В избранном
               </button>
-              <p class="card-rating">
-                <span class="visually-hidden">
-                  4 звезды
-                </span>
-                <span class="card-rating__text button button__text-regular">
-                  Рейтинг: 9,2
-                </span>
+              <p class="visually-hidden">
+                4 звезды
+              </p>
+              <p class="card-rating__text button button__text-regular">
+                Рейтинг: 9,2
               </p>
             </li>
 
@@ -280,13 +284,11 @@
                 type="button">
                 В избранное
               </button>
-              <p class="card-rating">
-                <span class="visually-hidden">
-                  3 звезды
-                </span>
-                <span class="card-rating__text button button__text-regular">
-                  Рейтинг: 6,9
-                </span>
+              <p class="visually-hidden">
+                3 звезды
+              </p>
+              <p class="card-rating__text button button__text-regular">
+                Рейтинг: 6,9
               </p>
             </li>
 
@@ -310,13 +312,11 @@
                 type="button">
                 В избранное
               </button>
-              <p class="card-rating">
-                <span class="visually-hidden">
-                  2 звезды
-                </span>
-                <span class="card-rating__text button button__text-regular">
-                  Рейтинг: 5,0
-                </span>
+              <p class="visually-hidden">
+                2 звезды
+              </p>
+              <p class="card-rating__text button button__text-regular">
+                Рейтинг: 5,0
               </p>
             </li>
 
@@ -353,8 +353,8 @@
 
           <h2 class="title title__medium">Подпишитесь на рассылку</h2>
 
-          <p class="text text__secondary">Только полезная информация и никакого спама,
-            честное бойскаутское!</p>
+          <p class="text text__secondary text__margin-bottom-auto">Только полезная информация и никакого спама,
+            <br>честное бойскаутское!</p>
 
           <form class="subscription-form" action="https://echo.htmlacademy.ru/"
             method="post">
@@ -362,7 +362,7 @@
             <label class="visually-hidden" for="subscriptions-email" >Email</label>
             <input class="subscription-input" type="email" name="subscriptions-email"
               id="subscriptions-email" placeholder="Ваш e-mail" required>
-            <button class="button button__big-text button__secondary button__submit ">
+            <button class="button button__big-text button__secondary button__subscribe">
               Подписаться</button>
 
           </form>
@@ -394,12 +394,14 @@
         </ul>
 
         <a class="phone-link text text__phone" href="tel:+78128121212">
-          +7 (812) 812-12-12</a>
+          +7 (812) 812-12-12
+        </a>
+
         <a class="logo logo__html-academy"
-          href="https://htmlacademy.ru/intensive/htmlcss"></a>
+          href="https://htmlacademy.ru/intensive/htmlcss">
+        </a>
 
       </footer>
-
     </div>
 
   </body>
