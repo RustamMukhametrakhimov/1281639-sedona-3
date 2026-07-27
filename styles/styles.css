@@ -77,7 +77,6 @@ body {
   margin: 0 auto;
   background-color: var(--bg-basic);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  /*box-shadow: 0 0 15px rgba(131, 179, 211, 20%);*/
 }
 
 .visually-hidden {
@@ -265,9 +264,10 @@ body {
 }
 
 .logo__header {
-  width: 140px;
-  height: 64px;
+  min-width: 140px;
+  height: 100%;
   margin-right: 30px;
+  position: relative;
 }
 
 .logo__header:hover {
@@ -277,11 +277,13 @@ body {
 .logo__images {
   width: 140px;
   height: 70px;
-  position: relative;
+  margin-bottom: -6px;
+  position: absolute;
   z-index: 1;
 }
 
 .navigation-menu {
+  max-width: 600px;
   margin-right: auto;
   padding-right: 20px;
 }
@@ -306,7 +308,6 @@ body {
 
 .navigation-menu-link__active {
   position: relative;
-  box-sizing: content-box;
 }
 
 .navigation-menu-link__active::after {
@@ -314,7 +315,6 @@ body {
   position: absolute;
   display: block;
   width: calc(100% - 32px);
-  margin-top: 1px;
   bottom: -1px;
   border-bottom: 2px solid #756257;
   z-index: 1;
@@ -327,6 +327,7 @@ body {
   margin-right: 20px;
   padding: 0;
   min-width: 88px;
+  max-width: 140px;
   list-style: none;
 }
 
@@ -369,7 +370,8 @@ body {
 .button__user-menu {
   min-width: 160px;
   max-width: 300px;
-  margin: auto 0;
+  margin: 0;
+  margin-top: 14px;
   text-decoration: none;
 }
 
@@ -382,14 +384,13 @@ body {
 
 /* секция hero */
 .hero {
-  display: block;
-  min-height: 485px;
-  padding-top: 51px;
+  padding: 51px 0 82px;
   background-color: var(--bg-main);
-  background-image: url("../images/hero-background.jpg");
+  background-image: url("../images/decorative/devider.svg"),
+    url("../images/hero-background.jpg");
+    background-position: bottom center;
   background-repeat: no-repeat;
   background-size: contain;
-  position: relative;
 }
 
 .hero-img {
@@ -399,31 +400,18 @@ body {
   height: 352px;
 }
 
-.hero::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 57px;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  bottom: 0;
-  background-image: url("../images/decorative/devider.svg");
-}
-
 /* секция advantages */
 .advantages {
   text-align: center;
 }
 
 .advantages-header {
-  min-height: 261px;
-  padding: 70px 270px;
-  margin-bottom: 20px;
+  padding: 69px 270px;
+  margin-bottom: 21px;
 }
 
 .advantages-header-title {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .advantages-list {
@@ -483,20 +471,14 @@ body {
   width: 58px;
   height: 0;
   border: 1px solid rgba(0, 0, 0, 30%);
+  /*border 1px, так как внутри рамки пусто*/
   position: absolute;
   left: calc(50% - 30px);
   bottom: -30px;
 }
 
 .advantages-item-title__on-bg::after {
-  content: "";
-  display: block;
-  width: 58px;
-  height: 0;
   border: 1px solid rgba(255, 255, 255, 30%);
-  position: absolute;
-  left: calc(50% - 30px);
-  bottom: -30px;
 }
 
 /* секция service */
@@ -505,7 +487,6 @@ body {
 }
 
 .service-header {
-  min-height: 246px;
   padding: 64px 345px;
 }
 
@@ -524,6 +505,12 @@ body {
   list-style: none;
   min-height: 385px;
   padding: 183px 81px 85px;
+  background-repeat: no-repeat;
+  background-position: center 81px;
+}
+
+.service-item:nth-of-type(2n+1) {
+  background-color: var(--bg-secondary-1);
 }
 
 .service-item-title {
@@ -531,30 +518,21 @@ body {
 }
 
 .service-item__home {
-  background-color: var(--bg-secondary-1);
   background-image: url("../images/decorative/service-home.svg");
-  background-repeat: no-repeat;
-  background-position: center 81px;
 }
 
 .service-item__food {
   background-image: url("../images/decorative/service-food.svg");
-  background-repeat: no-repeat;
-  background-position: center 81px;
 }
 
 .service-item__souvenir {
-  background-color: var(--bg-secondary-1);
   background-image: url("../images/decorative/service-souvenir.svg");
-  background-repeat: no-repeat;
-  background-position: center 81px;
 }
 
 /* секция search */
 .search {
   text-align: center;
   padding: 96px 304px;
-  min-height: 406px;
 }
 
 .search-title {
@@ -567,13 +545,11 @@ body {
 
 .button__search {
   min-width: 376px;
-  align-self: center;
   margin: 0 auto;
 }
 
 /* секция subscribe */
 .subscribe {
-  min-height: 415px;
   padding: 96px 258px 104px;
   text-align: center;
 }
@@ -581,6 +557,8 @@ body {
 .subscribe__main {
   background-color: var(--text-secondary);
   background-image: url("../images/subscribe.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .subscribe-title {
@@ -598,9 +576,11 @@ body {
 .subscription-input {
   width: 452px;
   height: 52px;
+  padding: 14px 20px;
   border: 0;
   border-radius: 4px 0 0 4px;
   font-style: inherit;
+  font-weight: 400;
 }
 
 .button__subscribe {
@@ -1015,32 +995,40 @@ body {
   display: block;
   min-width: 48px;
   min-height: 40px;
+  position: relative;
+}
+
+.social-link::after {
+  content: "";
+  position: absolute;
+  min-width: 48px;
+  min-height: 40px;
   mask-position: center;
   mask-repeat: no-repeat;
   background-color: var(--icon-secondary);
 }
 
-.social-link__vk {
+.social-link__vk::after {
   mask-image: url("../images/decorative/vk-logo.svg");
 }
 
-.social-link__tg {
+.social-link__tg::after {
   mask-image: url("../images/decorative/tg-logo.svg");
 }
 
-.social-link__youtube {
+.social-link__youtube::after {
   mask-image: url("../images/decorative/youtube-logo.svg");
 }
 
-.social-link:hover {
+.social-link:hover::after {
   background-color: var(--icon-secondary-hover);
 }
 
-.social-link:focus-visible {
+.social-link:focus-visible::after {
   background-color: var(--icon-secondary-hover);
 }
 
-.social-link:active {
+.social-link:active::after {
   background-color: var(--icon-secondary-active);
 }
 
@@ -1063,6 +1051,11 @@ body {
 
 .logo__html-academy {
   display: block;
+}
+
+.logo__html-academy::after {
+  content: "";
+  display: block;
   min-width: 115px;
   min-height: 33px;
   mask-image: url("../images/decorative/html-academy.svg");
@@ -1070,14 +1063,14 @@ body {
   background-color: var(--icon-basic);
 }
 
-.logo__html-academy:hover {
+.logo__html-academy:hover::after {
   background-color: var(--icon-hover);
 }
 
-.logo__html-academy:focus-visible {
+.logo__html-academy:focus-visible::after {
   background-color: var(--icon-hover);
 }
 
-.logo__html-academy:active {
+.logo__html-academy:active::after {
   background-color: var(--icon-active);
 }
