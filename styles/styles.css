@@ -32,8 +32,8 @@
   --icon-active: rgba(117, 97, 87, 30%);
 
   --form-inputs: #3F5E72;
-  --forn-elements-1: #E5E5E5;
-  --forn-elements-2: #F2F2F2;
+  --form-elements-1: #E5E5E5;
+  --form-elements-2: #F2F2F2;
 }
 
 /* подключение шрифтов */
@@ -67,6 +67,7 @@ body {
   font-style: normal;
   height: 100%;
   background-color: #f2f2f2;
+  margin: 0;
 }
 
 .page-container {
@@ -148,17 +149,6 @@ body {
   line-height: 21px;
 }
 
-.text__input {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 24px;
-}
-
-.text__checkbox {
-  font-size: 18px;
-  line-height: 23px;
-}
-
 .text__secondary {
   color: var(--text-secondary);
 }
@@ -199,11 +189,12 @@ body {
 .button:active {
   color: var(--button-active-text);
 }
-
+/* временно убрал, по стайлгайду нет рамки на основных кнопках
 .button:focus-visible {
-  border: none;
+  outline: none;
+  box-shadow: none;
 }
-
+*/
 .button:disabled {
   background-color: var(--button-disabled);
 }
@@ -238,6 +229,16 @@ body {
 
 .button__reset:hover {
   background-color: transparent;
+  opacity: 60%;
+}
+
+.button__reset:focus-visible {
+  outline: 3px solid var(--icon-secondary);
+}
+
+.button__reset:disabled {
+  background-color: transparent;
+  opacity: 10%;
 }
 
 .button__big-text {
@@ -255,19 +256,42 @@ body {
   text-transform: capitalize;
 }
 
+/* input */
+.input {
+  display: block;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--text-primary);
+  background-color: var(--form-elements-2);
+}
+
+.input::placeholder {
+  font-weight: 400;
+}
+
+.input:hover {
+  background-color: var(--form-elements-1);
+}
+
+.input:focus-visible {
+  background-color: var(--form-elements-1);
+}
+
 /* блок header */
 .page-header {
   display: flex;
   align-items: flex-start;
   padding: 0 70px;
   background-color: var(--bg-basic);
+  position: relative;
 }
 
 .logo__header {
   min-width: 140px;
   height: 100%;
   margin-right: 30px;
-  position: relative;
 }
 
 .logo__header:hover {
@@ -275,11 +299,10 @@ body {
 }
 
 .logo__images {
+  display: block;
   width: 140px;
   height: 70px;
   margin-bottom: -6px;
-  position: absolute;
-  z-index: 1;
 }
 
 .navigation-menu {
@@ -390,7 +413,7 @@ body {
     url("../images/hero-background.jpg");
     background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100%;
 }
 
 .hero-img {
@@ -439,6 +462,7 @@ body {
 
 .advantages-item-text {
   margin: 0 85px;
+  padding: 20px 0;
 }
 
 .advantages-item.advantages-item__with-picture-right {
@@ -573,14 +597,12 @@ body {
   display: flex;
 }
 
-.subscription-input {
+.input__subscriptions {
   width: 452px;
   height: 52px;
   padding: 14px 20px;
   border: 0;
   border-radius: 4px 0 0 4px;
-  font-style: inherit;
-  font-weight: 400;
 }
 
 .button__subscribe {
@@ -637,15 +659,22 @@ body {
   text-decoration: none;
 }
 
-.breadcrubs-link:hover {
+.breadcrubs-item:not(:last-of-type) .breadcrubs-link:hover {
   color: var(--text-on-bg-hover);
 }
 
-.breadcrubs-link:active {
+.breadcrubs-item:not(:last-of-type) .breadcrubs-link:active {
   color: var(--text-on-bg-active);
 }
 
 .breadcrubs-link__home {
+  display: block;
+  min-width: 15px;
+  min-height: 21px;
+}
+
+.breadcrubs-link__home::after {
+  content: "";
   display: block;
   min-width: 15px;
   min-height: 21px;
@@ -655,11 +684,11 @@ body {
   background-color: var(--bg-basic);
 }
 
-.breadcrubs-link__home:hover {
+.breadcrubs-link__home:hover::after {
   background-color: var(--text-on-bg-hover);
 }
 
-.breadcrubs-link__home:active {
+.breadcrubs-link__home:active::after {
   background-color: var(--text-on-bg-active);
 }
 
@@ -673,7 +702,6 @@ body {
   margin: 0;
   padding: 0;
   min-width: 150px;
-  min-height: 157px;
   border:none;
   display: flex;
   flex-direction: column;
@@ -685,32 +713,145 @@ body {
   margin-bottom: auto;
 }
 
+.text__checkbox {
+  display: flex;
+  align-items:center;
+  padding-left: 36px;
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.checkbox {
+  appearance: none;
+  position: relative;
+  margin: 0;
+}
+
+.checkbox::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border:none;
+  border-radius: 4px;
+  background-color: var(--bg-basic);
+  position: absolute;
+  left: -36px;
+  top: -10px;
+}
+
+.checkbox:checked::after {
+  background-image: url("../images/icons/checkbox.svg");
+  background-repeat: no-repeat;
+  background-size: 12px 10px;
+  background-position: center;
+}
+
+.checkbox-label:has(> .checkbox:hover) {
+  opacity: 60%;
+}
+
+.checkbox:focus-visible {
+  outline: none;
+}
+
+.checkbox:focus-visible::after {
+  outline: 3px solid var(--icon-secondary);
+}
+
+.checkbox-label:has(> .checkbox:active) {
+  opacity: 30%;
+}
+
+.radio-button {
+  appearance: none;
+  position: relative;
+  margin: 0;
+}
+
+.radio-button::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border:none;
+  border-radius: 50%;
+  background-color: var(--bg-basic);
+  position: absolute;
+  left: -36px;
+  top: -10px;
+}
+
+.radio-button:checked::after {
+  background-image: url("../images/icons/radio-button.svg");
+  background-repeat: no-repeat;
+  background-size: 12px 10px;
+  background-position: center;
+}
+
+.radio-label:has(> .radio-button:hover) {
+  opacity: 60%;
+}
+
+.radio-button:focus-visible {
+  outline: none;
+}
+
+.radio-button:focus-visible::after {
+  outline: 3px solid var(--icon-secondary);
+}
+
+.radio-label:has(> .radio-button:active) {
+  opacity: 30%;
+}
+
 .form-group-cost {
   margin-left: auto;
 }
 
 .form-group-cost-label-wrapper {
   display: flex;
+  gap: 2px;
+  max-width: 288px;
 }
 
 .label-cost {
-  min-width: 143px;
-  min-height: 48px;
+  width: 143px;
+  height: 48px;
   position: relative;
 }
 
 .input-cost {
-  display: block;
-  font-family: inherit;
-  min-width: 143px;
-  min-height: 48px;
+  width: 100%;
+  border: none;
+  padding: 12px 20px;
+  appearance: textfield;
+}
+
+.input-cost::placeholder {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.input-cost::-webkit-inner-spin-button,
+.input-cost::-webkit-outer-spin-button {
+  appearance: none;
+}
+
+.label-cost:nth-of-type(2n+1) .input-cost{
+  border-radius: 4px 0 0 4px;
+}
+
+.label-cost:nth-of-type(2n) .input-cost {
+  border-radius: 0 4px 4px 0;
 }
 
 .input-text {
   display: block;
   position: absolute;
-  right: 12px;
+  right: 20px;
   top: 12px;
+  opacity: 30%;
 }
 
 .form-group-cost-range-wrapper {
@@ -759,6 +900,28 @@ body {
   width: 292px;
   height: 49px;
   padding: 11px 20px;
+  appearance: none;
+  border: 2px solid var(--form-elements-1);
+  border-radius: 4px;
+  background-color: var(--bg-basic);
+  background-image:url("../images/icons/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center right 20px;
+  cursor: pointer;
+}
+
+.catalog-select:hover {
+  border: 2px solid var(--button-secondary-hover);
+}
+
+.catalog-select:focus-visible {
+  outline: none;
+  border: 2px solid var(--button-secondary-hover);
+}
+
+.catalog-select:disabled {
+  opacity: 70%;
+  border: 2px solid rgba(0, 0, 0, 30%);
 }
 
 .card-view-list {
@@ -778,9 +941,14 @@ body {
   display: block;
   width: 48px;
   height: 48px;
-  border: 2px solid var(--forn-elements-2);
+  border: 2px solid var(--form-elements-2);
+  border-radius: 4px;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+.card-view-link__active {
+  border-color: var(--icon-basic);
 }
 
 .card-view-link__tile {
@@ -824,7 +992,7 @@ body {
   gap: 16px 20px;
   min-height: 438px;
   padding: 20px;
-  border: 1px solid var(--forn-elements-1);
+  border: 1px solid var(--form-elements-1);
 }
 
 .card-link {
@@ -901,7 +1069,7 @@ body {
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
-  background-color: var(--forn-elements-2);
+  background-color: var(--form-elements-2);
   border-radius: 4px;
 }
 
@@ -922,6 +1090,7 @@ body {
   text-decoration: none;
   font-size: 20px;
   line-height: 36px;
+  font-weight: 700;
   text-align: center;
   color: var(--text-on-bg);
   background-color: var(--button-secondary);
@@ -942,22 +1111,22 @@ body {
 
 .pagination-link-current {
   color: var(--text-primary);
-  background-color: var(--forn-elements-2);
+  background-color: var(--form-elements-2);
 }
 
 .pagination-link-current:hover {
   color: var(--text-primary);
-  background-color: var(--forn-elements-2);
+  background-color: var(--form-elements-2);
 }
 
 .pagination-link-current:focus-visible {
   color: var(--text-primary);
-  background-color: var(--forn-elements-2);
+  background-color: var(--form-elements-2);
 }
 
 .pagination-link-current:active {
   color: var(--text-primary);
-  background-color: var(--forn-elements-2);
+  background-color: var(--form-elements-2);
 }
 
 .pagination-content {

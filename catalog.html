@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
     <title>HTML Academy: Седона</title>
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./styles/styles.css">
 
   </head>
@@ -109,8 +109,8 @@
 
               <li class="breadcrubs-item">
 
-                <a class="breadcrubs-link breadcrubs-link__current
-                  text__smaller text__on-bg text__on-bg-link" href="#">
+                <a class="breadcrubs-link text__smaller text__on-bg"
+                  aria-current="page">
                   Гостиницы
                 </a>
 
@@ -129,18 +129,18 @@
                 Инфраструктура:
               </legend>
 
-              <label class="text__checkbox text__on-bg">
-                <input type="checkbox" name="pool" id="pool" checked>
+              <label class="text text__checkbox text__on-bg checkbox-label">
+                <input class="checkbox" type="checkbox" name="pool" id="pool" checked>
                 Бассейн
               </label>
 
-              <label class="text__checkbox text__on-bg" >
-                <input type="checkbox" name="parking" id="parking" checked>
+              <label class="text__checkbox text__on-bg checkbox-label" >
+                <input class="checkbox" type="checkbox" name="parking" id="parking" checked>
                 Парковка
               </label>
 
-              <label class="text__checkbox text__on-bg">
-                <input type="checkbox" name="wifi" id="wifi">
+              <label class="text__checkbox text__on-bg checkbox-label">
+                <input class="checkbox" type="checkbox" name="wifi" id="wifi">
                 Wi-Fi
               </label>
 
@@ -152,18 +152,18 @@
                 Тип жилья:
               </legend>
 
-              <label class="text__checkbox text__on-bg">
-                <input type="radio" name="hotel-type" value="hotel" checked>
+              <label class="text__checkbox text__on-bg radio-label">
+                <input class="radio-button" type="radio" name="hotel-type" value="hotel" checked>
                 Гостиница
               </label>
 
-              <label class="text__checkbox text__on-bg">
-                <input type="radio" name="hotel-type" value="motel">
+              <label class="text__checkbox text__on-bg radio-label">
+                <input class="radio-button" type="radio" name="hotel-type" value="motel">
                 Мотель
               </label>
 
-              <label class="text__checkbox text__on-bg">
-                <input type="radio" name="hotel-type" value="apartments">
+              <label class="text__checkbox text__on-bg radio-label">
+                <input class="radio-button" type="radio" name="hotel-type" value="apartments">
                 Апартаменты
               </label>
 
@@ -178,16 +178,16 @@
               <div class="form-group-cost-label-wrapper">
 
                 <label class="label-cost">
-                  <input class="text text__input input-cost" type="number"
-                    min="0" max="100000" step="100" placeholder="0"
-                    name="min-price" id="min-price" required>
+                  <input class="text input input-cost" type="number"
+                    placeholder="0" name="min-price" id="min-price"
+                    required>
                     <span class="input-text">от</span>
                 </label>
 
                 <label class="label-cost">
-                  <input class="text text__input input-cost" type="number"
-                    min="0" max="100000" step="100" placeholder="9000"
-                    name="max-price" id="max-price" required>
+                  <input class="text input input-cost" type="number"
+                    placeholder="9000" name="max-price" id="max-price"
+                    required>
                     <span class="input-text">до</span>
                 </label>
 
@@ -233,8 +233,8 @@
               Найдено гостиниц: 38
             </h2>
 
-            <select class="text text__small catalog-select" name="catalog-sort"
-              id="catalog-sort" class="catalog-sort">
+            <select class="text text__small text__secondary catalog-select"
+              name="catalog-sort" id="catalog-sort" class="catalog-sort">
 
               <option class="catalog-option" value="from_min_price">
                 Сначала дешевые
@@ -252,7 +252,8 @@
 
               <li class="card-view-item">
 
-                <a class="card-view-link card-view-link__tile"
+                <a class="card-view-link card-view-link__active
+                  card-view-link__tile"
                   href="./catalog.html?view=tile">
                   <span class="visually-hidden">Показать плитками</span>
                 </a>
@@ -285,13 +286,13 @@
 
             <li class="card-item">
 
-              <a class="card-link card-link__header" href="#">
+              <a class="card-link card-link__header" href="#" tabindex="-1">
                 <h3 class="title title__small-nonocase">
                   Amara Resort & Spa
                 </h3>
               </a>
 
-              <a class="card-link card-link__image" href="#">
+              <a class="card-link card-link__image" href="#" tabindex="-1">
                 <img class="card-img" src="./images/hotel-1.jpg"
                   width="300" height="212" alt="Вид на звездное небо
                   из горного ущелья">
@@ -321,13 +322,13 @@
 
             <li class="card-item">
 
-              <a class="card-link card-link__header" href="#">
+              <a class="card-link card-link__header" href="#" tabindex="-1">
                 <h3 class="title title__small-nonocase">
                   Villas at Poco Diablo
                 </h3>
               </a>
 
-              <a class="card-link card-link__image" href="#">
+              <a class="card-link card-link__image" href="#" tabindex="-1">
                 <img class="card-img" src="./images/hotel-2.jpg"
                   width="300" height="212" alt="Вид на горный массив,
                   освещенный солнцем, и радугу">
@@ -357,13 +358,13 @@
 
             <li class="card-item">
 
-              <a class="card-link card-link__header" href="#">
+              <a class="card-link card-link__header" href="#" tabindex="-1">
                 <h3 class="title title__small-nonocase">
                   Desert Quail Inn
                 </h3>
               </a>
 
-              <a class="card-link card-link__image" href="#">
+              <a class="card-link card-link__image" href="#" tabindex="-1">
                 <img class="card-img" src="./images/hotel-3.jpg"
                   width="300" height="212" alt="Вид на звездное небо
                   из горного ущелья">
@@ -393,13 +394,13 @@
 
             <li class="card-item">
 
-              <a class="card-link card-link__header" href="#">
+              <a class="card-link card-link__header" href="#" tabindex="-1">
                 <h3 class="title title__small-nonocase">
                   GreenTree Inn
                 </h3>
               </a>
 
-              <a class="card-link card-link__image" href="#">
+              <a class="card-link card-link__image" href="#" tabindex="-1">
                 <img class="card-img" src="./images/hotel-4.jpg"
                   width="300" height="212" alt="Вид на звездное небо
                   из горного ущелья">
@@ -432,8 +433,7 @@
           <ul class="pagination-list">
 
             <li class="pagination-item">
-              <a class="pagination-link pagination-link-current"
-                href="#">1</a>
+              <a class="pagination-link pagination-link-current">1</a>
             </li>
 
             <li class="pagination-item">
@@ -479,7 +479,7 @@
               Email
             </label>
 
-            <input class="subscription-input text__input" type="email"
+            <input class="input input__subscriptions" type="email"
               name="subscriptions-email" id="subscriptions-email" placeholder="Ваш e-mail"
               required>
 
