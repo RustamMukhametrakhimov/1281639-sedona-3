@@ -280,7 +280,8 @@
             лучшие предложения гостиниц в Седоне
           </p>
 
-          <button class="button button__big-text button__search" type="button">
+          <button class="button button__big-text button__search" type="button"
+            onclick="document.getElementById('search-hotel').showModal()">
             Поиск гостиницы в Седоне
           </button>
 
@@ -359,6 +360,57 @@
         </a>
 
       </footer>
+
+      <dialog class="modal" id="search-hotel">
+
+        <button class="close-modal"
+          onclick="document.getElementById('search-hotel').close()">
+          <label class="visually-hidden">
+            Закрыть
+          </label>
+          X  <!-- пока нет стилей, замещает крестик -->
+        </button>
+
+        <form class="search-hotel-form" action="https://echo.htmlacademy.ru/"
+          method="post">
+
+          <h2 class="title title__medium">
+            Поиск гостиницы в Седоне
+          </h2>
+
+          <label for="arrival-date" class="title title__smaller">
+            Дата заезда:
+          </label>
+          <input class="input input__arrival-date" type="date"
+            id="arrival-date">
+
+          <label for="" class="title title__smaller">
+            Дата выезда:
+          </label>
+          <input class="input input__departure-date" type="date"
+            id="departure-date">
+
+          <div class="persons">
+            <label for="adults" class="title title__smaller">
+              Взрослые:
+            </label>
+            <input class="input input__adults" type="number" id="adults">
+
+            <label for="children" class="title title__smaller">
+              Дети:
+            </label>
+            <input class="input input__children" type="number"
+              id="children">
+          </div>
+
+          <button class="button button__secondary button__search-modal">
+            Найти
+          </button>
+
+
+        </form>
+
+      </dialog>
 
     </div>
 
