@@ -23,6 +23,7 @@
   --bg-secondary-1: rgba(131, 179, 211, 12%);
   --bg-secondary-2: rgba(131, 179, 211, 20%);
   --bg-range: rgba(255, 255, 255, 30%);
+  --bg-modal: rgba(242, 242, 242, 80%);
 
   --icon-basic: #000000;
   --icon-secondary: #83B3D3;
@@ -1167,6 +1168,29 @@ body {
   text-align: center;
 }
 
+/* модальное окно */
+.modal {
+  width: 717px;
+  padding: 64px 70px;
+  border:none;
+  border-radius: 30px;
+  margin: auto;
+  position: fixed;
+}
+
+.modal::backdrop {
+  background-color: var(--bg-modal);
+}
+
+.search-hotel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.label-modal {
+  display: flex;
+}
 /* блок footer */
 .page-footer {
   display: flex;
