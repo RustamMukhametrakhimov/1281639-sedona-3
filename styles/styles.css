@@ -22,6 +22,7 @@
   --bg-main: #82B3D3;
   --bg-secondary-1: rgba(131, 179, 211, 12%);
   --bg-secondary-2: rgba(131, 179, 211, 20%);
+  --bg-range: rgba(255, 255, 255, 30%);
 
   --icon-basic: #000000;
   --icon-secondary: #83B3D3;
@@ -709,21 +710,19 @@ body {
   gap: 16px;
 }
 
-.form-group-legend {
-  margin-bottom: auto;
-}
-
-.text__checkbox {
+.label__form {
   display: flex;
+  flex-wrap: wrap;
+  max-width: 150px;
   align-items:center;
   padding-left: 36px;
   font-size: 18px;
   line-height: 23px;
+  position: relative;
 }
 
 .checkbox {
   appearance: none;
-  position: relative;
   margin: 0;
 }
 
@@ -736,8 +735,8 @@ body {
   border-radius: 4px;
   background-color: var(--bg-basic);
   position: absolute;
-  left: -36px;
-  top: -10px;
+  left: 0;
+  top: calc((100% - 20px) * 0.5);
 }
 
 .checkbox:checked::after {
@@ -765,7 +764,6 @@ body {
 
 .radio-button {
   appearance: none;
-  position: relative;
   margin: 0;
 }
 
@@ -778,8 +776,8 @@ body {
   border-radius: 50%;
   background-color: var(--bg-basic);
   position: absolute;
-  left: -36px;
-  top: -10px;
+  left: 0;
+  top: calc((100% - 20px) * 0.5);
 }
 
 .radio-button:checked::after {
@@ -805,44 +803,45 @@ body {
   opacity: 30%;
 }
 
-.form-group-cost {
+.form-group-price {
   margin-left: auto;
 }
 
-.form-group-cost-label-wrapper {
+.form-group-price-label-wrapper {
   display: flex;
   gap: 2px;
   max-width: 288px;
+  margin-bottom: 20px;
 }
 
-.label-cost {
+.label-price {
   width: 143px;
   height: 48px;
   position: relative;
 }
 
-.input-cost {
+.input-price {
   width: 100%;
   border: none;
   padding: 12px 20px;
   appearance: textfield;
 }
 
-.input-cost::placeholder {
+.input-price::placeholder {
   color: var(--text-primary);
   font-weight: 700;
 }
 
-.input-cost::-webkit-inner-spin-button,
-.input-cost::-webkit-outer-spin-button {
+.input-price::-webkit-inner-spin-button,
+.input-price::-webkit-outer-spin-button {
   appearance: none;
 }
 
-.label-cost:nth-of-type(2n+1) .input-cost{
+.label-price:nth-of-type(2n+1) .input-price{
   border-radius: 4px 0 0 4px;
 }
 
-.label-cost:nth-of-type(2n) .input-cost {
+.label-price:nth-of-type(2n) .input-price {
   border-radius: 0 4px 4px 0;
 }
 
@@ -854,15 +853,44 @@ body {
   opacity: 30%;
 }
 
-.form-group-cost-range-wrapper {
+.form-group-price-range {
+  width: 100%;
+  height: 20px;
   display: flex;
+  align-items:center;
 }
 
-.form-group-range {
-  display: block;
-  width: 140px;
-  margin: 0;
-  padding: 0;
+.price-interval {
+  width: 100%;
+  height: 4px;
+  /*background-color: var(--bg-basic);*/
+  background-image: linear-gradient(90deg, var(--bg-basic) 210px,
+    var(--bg-range) 210px);
+  position: relative;
+}
+
+.range-toogle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--bg-basic);
+  top: -8px;
+}
+
+.range-toogle:hover {
+  cursor: move;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.range-toogle:active {
+  border: 2px solid var(--icon-secondary);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.range-toogle__max {
+  right: 61px;
 }
 
 .form-group-wrapper {
