@@ -24,6 +24,8 @@
   --bg-secondary-2: rgba(131, 179, 211, 20%);
   --bg-range: rgba(255, 255, 255, 30%);
   --bg-modal: rgba(242, 242, 242, 80%);
+  --bg-modal-date: rgba(0, 0, 0, 30%);
+  --bg-dark: #333333;
 
   --icon-basic: #000000;
   --icon-secondary: #83B3D3;
@@ -56,7 +58,7 @@
 }
 
 /* базовые стили */
-* {
+*, *::after, *::before {
   box-sizing: border-box;
 }
 
@@ -184,19 +186,14 @@ body {
   background-color: var(--button-primary);
 }
 
-.button:hover {
+.button:not(:disabled):hover {
   background-color: var(--button-primary-hover);
 }
 
 .button:active {
   color: var(--button-active-text);
 }
-/* временно убрал, по стайлгайду нет рамки на основных кнопках
-.button:focus-visible {
-  outline: none;
-  box-shadow: none;
-}
-*/
+
 .button:disabled {
   background-color: var(--button-disabled);
 }
@@ -205,7 +202,7 @@ body {
   background-color: var(--button-secondary);
 }
 
-.button__secondary:hover {
+.button__secondary:not(:disabled):hover {
   background-color: var(--button-secondary-hover);
 }
 
@@ -217,7 +214,7 @@ body {
   background-color: var(--button-selected);
 }
 
-.button__selected:hover {
+.button__selected:not(:disabled):hover {
   background-color: var(--button-selected-hover);
 }
 
@@ -229,7 +226,7 @@ body {
   background-color: transparent;
 }
 
-.button__reset:hover {
+.button__reset:not(:disabled):hover {
   background-color: transparent;
   opacity: 60%;
 }
@@ -263,8 +260,8 @@ body {
   display: block;
   font-family: inherit;
   font-size: 18px;
-  font-weight: 700;
   line-height: 24px;
+  font-weight: 700;
   color: var(--text-primary);
   background-color: var(--form-elements-2);
 }
@@ -273,7 +270,7 @@ body {
   font-weight: 400;
 }
 
-.input:hover {
+.input:not(:disabled):hover {
   background-color: var(--form-elements-1);
 }
 
@@ -401,12 +398,12 @@ body {
 }
 
 /* блок main */
-/* страница index.html */
 .main {
   flex-grow: 1;
   background-color: var(--bg-basic);
 }
 
+/* страница index.html */
 /* секция hero */
 .hero {
   padding: 51px 0 82px;
@@ -497,7 +494,7 @@ body {
   width: 58px;
   height: 0;
   border: 1px solid rgba(0, 0, 0, 30%);
-  /*border 1px, так как внутри рамки пусто*/
+  /*border 1px, так как внутри рамки пусто, получается линия в 2px*/
   position: absolute;
   left: calc(50% - 30px);
   bottom: -30px;
@@ -613,6 +610,269 @@ body {
   border-radius: 0 4px 4px 0;
 }
 
+/* модальное окно */
+.modal {
+  width: 717px;
+  min-height: 576px;
+  padding: 64px 70px;
+  border:none;
+  border-radius: 30px;
+  margin: auto;
+  position: fixed;
+}
+
+.modal::backdrop {
+  background-color: var(--bg-modal);
+}
+
+.close-modal {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  right: 52px;
+}
+
+.close-modal::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 52px;
+  height: 52px;
+  mask-image: url("../images/icons/cross.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: var(--icon-basic);
+  top: 0;
+}
+
+.close-modal:not(:disabled):hover {
+  background-color: var(--form-elements-1);
+}
+
+.close-modal:focus-visible {
+  background-color: var(--form-elements-1);
+}
+
+.close-modal:active {
+  background-color: var(--form-elements-1);
+}
+
+.close-modal:active::after {
+  background-color: var(--bg-modal-date);
+}
+
+.search-form-title {
+  margin-bottom: 64px;
+}
+
+.search-hotel-form {
+  display: grid;
+  grid-template-columns: auto 440px;
+}
+
+.text__arrival-date {
+  grid-row: 1/3;
+  padding: 12px 8px 12px 0;
+}
+
+.text__departure-date {
+  grid-row: 3/5;
+  padding: 12px 8px 12px 0;
+}
+
+.label-date {
+  display: block;
+  position: relative;
+}
+
+.label-date::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  mask-image: url("../images/icons/date.svg");
+  background-color: var(--bg-modal-date);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  top: 14px;
+  right: 20px;
+}
+
+.input__date {
+  width: 100%;
+  height: 48px;
+  padding: 12px 20px;
+  border:none;
+  border-radius: 4px;
+}
+
+.text__modal-date-arrival {
+  padding: 4px 20px;
+  min-height: 48px;
+}
+
+.text__modal-date-departure {
+  padding: 4px 20px;
+  min-height: 48px;
+}
+
+.persons {
+  grid-column: 1/-1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.person-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.person-count__adults {
+  min-width: 247px;
+  margin-right: 10px;
+}
+
+.person-count__children {
+  min-width: 242px;
+}
+
+.text-children-wrapper {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.button-info {
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--icon-secondary);
+  position: relative;
+}
+
+.button-info::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  mask-image: url("../images/icons/info.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: var(--bg-basic);
+  top: 0;
+  left: 0;
+}
+
+.text__tooltip {
+  display: none;
+  position: absolute;
+  width: 256px;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 15px 18px 18px 22px;
+  border-radius: 10px;
+  background-color: var(--bg-dark);
+  top: 40px;
+  left: -56px;
+}
+
+.text__tooltip::after {
+  content: "";
+  position: absolute;
+  width: 19px;
+  height: 9px;
+  background-color: var(--bg-dark);
+  background-image:
+    linear-gradient(135deg, var(--bg-basic) 33%, transparent 33%),
+    linear-gradient(225deg, var(--bg-basic) 33%, transparent 33%);
+  top: -9px;
+  left: calc(50% - 10px);
+}
+
+.button-info:not(:disabled):hover + .text__tooltip {
+  display: block;
+}
+
+.count-wrapper {
+  display: flex;
+  align-items:center;
+  min-width: 110px;
+  padding: 12px 10px;
+  background-color: var(--form-elements-2);
+  border-radius: 4px;
+}
+
+.button-count {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  position: relative;
+}
+
+.button-count::after {
+  content:"";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: var(--text-active);
+}
+
+.button-count-plus::after {
+  mask-image: url("../images/icons/plus.svg");
+}
+
+.button-count-minus::after {
+  mask-image: url("../images/icons/minus.svg");
+}
+
+.button-count:not(:disabled):hover::after {
+  background-color: var(--icon-basic);
+}
+
+.button-count:focus-visible::after {
+  background-color: var(--icon-basic);
+}
+
+.button-count:active::after {
+  background-color: var(--text-active);
+}
+
+.input__count {
+  width: 31px;
+  border: none;
+  padding: 0;
+  margin: 0 10px;
+  text-align: center;
+  appearance: textfield;
+}
+
+.input__count::-webkit-inner-spin-button,
+.input__count::-webkit-outer-spin-button {
+  appearance: none;
+}
+
+.button__search-modal {
+  grid-column: 1/-1;
+  height: 60px;
+}
+
 /* страница catalog.html */
 /* секция catalog-header */
 .catalog-section-header {
@@ -711,6 +971,10 @@ body {
   gap: 16px;
 }
 
+.form-group-legend {
+  margin-bottom: 32px;
+}
+
 .label__form {
   display: flex;
   flex-wrap: wrap;
@@ -737,7 +1001,7 @@ body {
   background-color: var(--bg-basic);
   position: absolute;
   left: 0;
-  top: calc((100% - 20px) * 0.5);
+  top: 2px;
 }
 
 .checkbox:checked::after {
@@ -864,7 +1128,6 @@ body {
 .price-interval {
   width: 100%;
   height: 4px;
-  /*background-color: var(--bg-basic);*/
   background-image: linear-gradient(90deg, var(--bg-basic) 210px,
     var(--bg-range) 210px);
   position: relative;
@@ -880,7 +1143,7 @@ body {
   top: -8px;
 }
 
-.range-toogle:hover {
+.range-toogle:not(:disabled):hover {
   cursor: move;
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
 }
@@ -939,7 +1202,7 @@ body {
   cursor: pointer;
 }
 
-.catalog-select:hover {
+.catalog-select:not(:disabled):hover {
   border: 2px solid var(--button-secondary-hover);
 }
 
@@ -1143,21 +1406,6 @@ body {
   background-color: var(--form-elements-2);
 }
 
-.pagination-link-current:hover {
-  color: var(--text-primary);
-  background-color: var(--form-elements-2);
-}
-
-.pagination-link-current:focus-visible {
-  color: var(--text-primary);
-  background-color: var(--form-elements-2);
-}
-
-.pagination-link-current:active {
-  color: var(--text-primary);
-  background-color: var(--form-elements-2);
-}
-
 .pagination-content {
   display: block;
   min-height: 60px;
@@ -1168,29 +1416,6 @@ body {
   text-align: center;
 }
 
-/* модальное окно */
-.modal {
-  width: 717px;
-  padding: 64px 70px;
-  border:none;
-  border-radius: 30px;
-  margin: auto;
-  position: fixed;
-}
-
-.modal::backdrop {
-  background-color: var(--bg-modal);
-}
-
-.search-hotel-form {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
-.label-modal {
-  display: flex;
-}
 /* блок footer */
 .page-footer {
   display: flex;

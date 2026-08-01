@@ -129,17 +129,20 @@
                 Инфраструктура:
               </legend>
 
-              <label class="text label__form text__on-bg checkbox-label">
+              <label class="text label__form text__on-bg checkbox-label"
+                for="pool">
                 <input class="checkbox" type="checkbox" name="pool" id="pool" checked>
                 Бассейн
               </label>
 
-              <label class="label__form text__on-bg checkbox-label" >
+              <label class="label__form text__on-bg checkbox-label"
+                for="parking">
                 <input class="checkbox" type="checkbox" name="parking" id="parking" checked>
                 Парковка
               </label>
 
-              <label class="label__form text__on-bg checkbox-label">
+              <label class="label__form text__on-bg checkbox-label"
+                for="wifi">
                 <input class="checkbox" type="checkbox" name="wifi" id="wifi">
                 Wi-Fi
               </label>
@@ -152,18 +155,24 @@
                 Тип жилья:
               </legend>
 
-              <label class="label__form text__on-bg radio-label">
-                <input class="radio-button" type="radio" name="hotel-type" value="hotel" checked>
+              <label class="label__form text__on-bg radio-label"
+                for="hotel-type-hotel">
+                <input class="radio-button" type="radio" name="hotel-type"
+                  value="hotel" id="hotel-type-hotel" checked>
                 Гостиница
               </label>
 
-              <label class="label__form text__on-bg radio-label">
-                <input class="radio-button" type="radio" name="hotel-type" value="motel">
+              <label class="label__form text__on-bg radio-label"
+                for="hotel-type-motel">
+                <input class="radio-button" type="radio" name="hotel-type"
+                  value="motel" id="hotel-type-motel">
                 Мотель
               </label>
 
-              <label class="label__form text__on-bg radio-label">
-                <input class="radio-button" type="radio" name="hotel-type" value="apartments">
+              <label class="label__form text__on-bg radio-label"
+                for="hotel-type-apartments">
+                <input class="radio-button" type="radio" name="hotel-type"
+                  value="apartments" id="hotel-type-apartments">
                 Апартаменты
               </label>
 
@@ -177,14 +186,14 @@
 
               <div class="form-group-price-label-wrapper">
 
-                <label class="label-price">
+                <label class="label-price" for="min-price">
                   <input class="text input input-price" type="number"
                     placeholder="0" name="min-price" id="min-price"
                     required>
                     <span class="input-text">от</span>
                 </label>
 
-                <label class="label-price">
+                <label class="label-price" for="max-price">
                   <input class="text input input-price" type="number"
                     placeholder="9000" name="max-price" id="max-price"
                     required>
@@ -195,22 +204,22 @@
 
               <div class="form-group-price-range">
 
-                <label class="visually-hidden">
+                <span class="visually-hidden">
                   Диапазон цен
-                </label>
+                </span>
 
                 <div class="price-interval">
 
                   <button class="range-toogle range-toogle__min" type="button">
-                    <label class="visually-hidden">
+                    <span class="visually-hidden">
                       Минимальная цена
-                    </label>
+                    </span>
                   </button>
 
                   <button class="range-toogle range-toogle__max" type="button">
-                    <label class="visually-hidden">
+                    <span class="visually-hidden">
                       Максимальная цена
-                    </label>
+                    </span>
                   </button>
 
                 </div>
@@ -479,7 +488,7 @@
             Подпишитесь на рассылку
           </h2>
 
-          <p class="text text__margin-bottom-auto subscribe-text">
+          <p class="text subscribe-text">
             Только полезная информация и никакого спама,
             честное бойскаутское!
           </p>
@@ -492,10 +501,11 @@
             </label>
 
             <input class="input input__subscriptions" type="email"
-              name="subscriptions-email" id="subscriptions-email" placeholder="Ваш e-mail"
-              required>
+              name="subscriptions-email" id="subscriptions-email"
+              placeholder="Ваш e-mail" required>
 
-            <button class="button button__big-text button__secondary button__subscribe">
+            <button class="button button__big-text button__secondary
+              button__subscribe" type="button">
               Подписаться
             </button>
 

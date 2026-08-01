@@ -309,7 +309,8 @@
               name="subscriptions-email" id="subscriptions-email" placeholder="Ваш e-mail"
               required>
 
-            <button class="button button__big-text button__secondary button__subscribe">
+            <button class="button button__big-text button__secondary
+              button__subscribe" type="button">
               Подписаться
             </button>
 
@@ -362,58 +363,143 @@
       </footer>
 
       <dialog class="modal" id="search-hotel">
+        <!-- модальное окно -->
 
-        <button class="close-modal"
+        <button class="close-modal" type="button"
           onclick="document.getElementById('search-hotel').close()">
-          <label class="visually-hidden">
+          <span class="visually-hidden">
             Закрыть
-          </label>
-          X  <!-- пока нет стилей, замещает крестик -->
+          </span>
         </button>
 
-        <form class="search-hotel-form" action="https://echo.htmlacademy.ru/"
-          method="post">
+        <section class="modal-content">
 
-          <h2 class="title title__medium">
+          <h2 class="title title__medium search-form-title">
             Поиск гостиницы в Седоне
           </h2>
 
-          <label class="title title__smaller label-modal">
-            <input class="input input__arrival-date" type="date"
-              id="arrival-date" name="arrival-date">
-            Дата заезда:
-          </label>
+          <form class="search-hotel-form" action="https://echo.htmlacademy.ru/"
+              method="post">
 
+            <p class="title title__smaller text__arrival-date">
+              Дата заезда:
+            </p>
 
-          <label class="title title__smaller label-modal">
-            <input class="input input__departure-date" type="date"
-              id="departure-date" name="departure-date">
-            Дата выезда:
-          </label>
-
-
-          <div class="persons">
-            <label class="title title__smaller label-modal">
-              <input class="input input__adults" type="number"
-                id="adults" name="adults">
-              Взрослые:
+            <label class="label-date" for="arrival-date">
+              <input class="input input__date" type="text" id="arrival-date"
+                name="arrival-date" placeholder="Введите дату"
+                value="27 апреля 2020" required>
             </label>
 
+            <p class="text text__smaller text__error
+              text__modal-date-arrival">
+              Мы не можем отправить вас в прошлое.
+            </p>
 
-            <label class="title title__smaller label-modal">
-              <input class="input input__children" type="number"
-                id="children" name="children">
-              Дети:
+            <p class="title title__smaller text__departure-date">
+              Дата выезда:
+            </p>
+
+            <label class="label-date label-date__departure" for="departure-date">
+              <input class="input input__date" type="text" id="departure-date"
+                name="departure-date" placeholder="Введите дату"
+                value="1 сентября 2023" required>
             </label>
 
-          </div>
+            <p class="text text__smaller text__modal-date-departure">
+              На эти даты есть свободные номера. Пока есть.
+            </p>
 
-          <button class="button button__secondary button__search-modal">
-            Найти
-          </button>
+            <div class="persons">
 
+              <div class="person-count person-count__adults">
 
-        </form>
+                <p class="title title__smaller">
+                  Взрослые:
+                </p>
+
+                <div class="count-wrapper">
+
+                  <button class="button-count button-count-plus" type="button"
+                    name="burron-count-plus-adults">
+                    <span class="visually-hidden">
+                      Кнопка плюс
+                    </span>
+                  </button>
+
+                  <label class="label-count" for="adults">
+                    <input class="input input__count" type="number"
+                      id="adults" name="adults" value="2" required>
+                  </label>
+
+                  <button class="button-count button-count-minus" type="button"
+                    name="burron-count-minus-adults">
+                    <span class="visually-hidden">
+                      Кнопка минус
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+              <div class="person-count person-count__children">
+
+                <div class="text-children-wrapper">
+
+                  <p class="title title__smaller">
+                    Дети:
+                  </p>
+
+                  <button class="button-info" type="button">
+                    <span class="visually-hidden">
+                      Подсказка о количестве детей
+                    </span>
+                  </button>
+
+                  <p class="text text__on-bg text__tooltip">
+                    Укажите количество детей, которые будут с вами,
+                    возраст которых от 6 до 18 лет. Дети до 6 лет
+                    размещаются бесплатно.
+                  </p>
+
+                </div>
+
+                <div class="count-wrapper">
+
+                  <button class="button-count button-count-plus" type="button"
+                    name="burron-count-plus-children">
+                    <span class="visually-hidden">
+                      Кнопка плюс
+                    </span>
+                  </button>
+
+                  <label class="label-count" for="children">
+                    <input class="input input__count" type="number"
+                      id="children" name="children" value="2" required>
+                  </label>
+
+                  <button class="button-count button-count-minus" type="button"
+                    name="burron-count-minus-children">
+                    <span class="visually-hidden">
+                      Кнопка минус
+                    </span>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <button class="button button__secondary button__search-modal"
+              type="button">
+              Найти
+            </button>
+
+          </form>
+
+        </section>
 
       </dialog>
 
