@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
     <title>HTML Academy: Седона</title>
-    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico" sizes="32x32" type="image/x-icon">
     <link rel="stylesheet" href="./styles/styles.css">
 
   </head>
@@ -123,122 +123,130 @@
           <form class="catalog-filter-form" method="get"
             action="https://echo.htmlacademy.ru/">
 
-            <fieldset class="form-group">
+            <div class="filter-wrapper">
 
-              <legend class="title title__smaller text__on-bg form-group-legend">
-                Инфраструктура:
-              </legend>
+              <fieldset class="form-group">
 
-              <label class="text label__form text__on-bg checkbox-label"
-                for="pool">
-                <input class="checkbox" type="checkbox" name="pool" id="pool" checked>
-                Бассейн
-              </label>
+                <legend class="title title__smaller text__on-bg form-group-legend">
+                  Инфраструктура:
+                </legend>
 
-              <label class="label__form text__on-bg checkbox-label"
-                for="parking">
-                <input class="checkbox" type="checkbox" name="parking" id="parking" checked>
-                Парковка
-              </label>
-
-              <label class="label__form text__on-bg checkbox-label"
-                for="wifi">
-                <input class="checkbox" type="checkbox" name="wifi" id="wifi">
-                Wi-Fi
-              </label>
-
-            </fieldset>
-
-            <fieldset class="form-group">
-
-              <legend class="title title__smaller text__on-bg form-group-legend">
-                Тип жилья:
-              </legend>
-
-              <label class="label__form text__on-bg radio-label"
-                for="hotel-type-hotel">
-                <input class="radio-button" type="radio" name="hotel-type"
-                  value="hotel" id="hotel-type-hotel" checked>
-                Гостиница
-              </label>
-
-              <label class="label__form text__on-bg radio-label"
-                for="hotel-type-motel">
-                <input class="radio-button" type="radio" name="hotel-type"
-                  value="motel" id="hotel-type-motel">
-                Мотель
-              </label>
-
-              <label class="label__form text__on-bg radio-label"
-                for="hotel-type-apartments">
-                <input class="radio-button" type="radio" name="hotel-type"
-                  value="apartments" id="hotel-type-apartments">
-                Апартаменты
-              </label>
-
-            </fieldset>
-
-            <fieldset class="form-group form-group-price">
-
-              <legend class="title title__smaller text__on-bg form-group-legend">
-                Стоимость, ₽:
-              </legend>
-
-              <div class="form-group-price-label-wrapper">
-
-                <label class="label-price" for="min-price">
-                  <input class="text input input-price" type="number"
-                    placeholder="0" name="min-price" id="min-price"
-                    required>
-                    <span class="input-text">от</span>
+                <label class="text label__form text__on-bg checkbox-label"
+                  for="pool">
+                  <input class="checkbox" type="checkbox" name="pool" id="pool" checked>
+                  Бассейн
                 </label>
 
-                <label class="label-price" for="max-price">
-                  <input class="text input input-price" type="number"
-                    placeholder="9000" name="max-price" id="max-price"
-                    required>
-                    <span class="input-text">до</span>
+                <label class="label__form text__on-bg checkbox-label"
+                  for="parking">
+                  <input class="checkbox" type="checkbox" name="parking" id="parking" checked>
+                  Парковка
                 </label>
 
-              </div>
+                <label class="label__form text__on-bg checkbox-label"
+                  for="wifi">
+                  <input class="checkbox" type="checkbox" name="wifi" id="wifi">
+                  Wi-Fi
+                </label>
 
-              <div class="form-group-price-range">
+              </fieldset>
 
-                <span class="visually-hidden">
-                  Диапазон цен
-                </span>
+              <fieldset class="form-group">
 
-                <div class="price-interval">
+                <legend class="title title__smaller text__on-bg form-group-legend">
+                  Тип жилья:
+                </legend>
 
-                  <button class="range-toogle range-toogle__min" type="button">
-                    <span class="visually-hidden">
-                      Минимальная цена
-                    </span>
-                  </button>
+                <label class="label__form text__on-bg radio-label"
+                  for="hotel-type-hotel">
+                  <input class="radio-button" type="radio" name="hotel-type"
+                    value="hotel" id="hotel-type-hotel" checked>
+                  Гостиница
+                </label>
 
-                  <button class="range-toogle range-toogle__max" type="button">
-                    <span class="visually-hidden">
-                      Максимальная цена
-                    </span>
-                  </button>
+                <label class="label__form text__on-bg radio-label"
+                  for="hotel-type-motel">
+                  <input class="radio-button" type="radio" name="hotel-type"
+                    value="motel" id="hotel-type-motel">
+                  Мотель
+                </label>
+
+                <label class="label__form text__on-bg radio-label"
+                  for="hotel-type-apartments">
+                  <input class="radio-button" type="radio" name="hotel-type"
+                    value="apartments" id="hotel-type-apartments">
+                  Апартаменты
+                </label>
+
+              </fieldset>
+
+            </div>
+
+            <div class="price-with-button-wrapper">
+
+              <fieldset class="form-group form-group-price">
+
+                <legend class="title title__smaller text__on-bg form-group-legend">
+                  Стоимость, ₽:
+                </legend>
+
+                <div class="form-group-price-label-wrapper">
+
+                  <label class="label-price" for="min-price">
+                    <input class="text input input-price" type="number"
+                      placeholder="0" name="min-price" id="min-price"
+                      required>
+                      <span class="input-text">от</span>
+                  </label>
+
+                  <label class="label-price" for="max-price">
+                    <input class="text input input-price" type="number"
+                      placeholder="9000" name="max-price" id="max-price"
+                      required>
+                      <span class="input-text">до</span>
+                  </label>
 
                 </div>
 
+                <div class="form-group-price-range">
+
+                  <span class="visually-hidden">
+                    Диапазон цен
+                  </span>
+
+                  <div class="price-interval">
+
+                    <button class="range-toogle range-toogle__min" type="button">
+                      <span class="visually-hidden">
+                        Минимальная цена
+                      </span>
+                    </button>
+
+                    <button class="range-toogle range-toogle__max" type="button">
+                      <span class="visually-hidden">
+                        Максимальная цена
+                      </span>
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </fieldset>
+
+              <div class="form-group-wrapper">
+
+                <button class="button button__secondary button__cataloge-filter"
+                  type="submit">
+                  Применить
+                </button>
+
+                <button class="button button__reset  button__cataloge-filter"
+                  type="reset">
+                  Сбросить
+                </button>
+
               </div>
-
-            </fieldset>
-
-            <div class="form-group-wrapper">
-
-              <button class="button button__secondary button__cataloge-filter"
-                type="submit">
-                Применить
-              </button>
-
-              <button class="button button__reset  button__cataloge-filter"
-                type="reset">
-                Сбросить
-              </button>
 
             </div>
 
@@ -254,52 +262,57 @@
               Найдено гостиниц: 38
             </h2>
 
-            <select class="text text__small text__secondary catalog-select"
-              name="catalog-sort" id="catalog-sort" class="catalog-sort">
+            <div class="catalog-filter-wrapper">
 
-              <option class="catalog-option" value="from_min_price">
-                Сначала дешевые
-              </option>
-              <option class="catalog-option" value="from_max_price">
-                Сначала дорогие
-              </option>
-              <option class="catalog-option"value="from_popular">
-                Сначала популярные
-              </option>
+              <select class="text text__small text__secondary catalog-select"
+                name="catalog-sort" id="catalog-sort">
 
-            </select>
+                <option class="catalog-option" value="from_min_price">
+                  Сначала дешевые
+                </option>
+                <option class="catalog-option" value="from_max_price">
+                  Сначала дорогие
+                </option>
+                <option class="catalog-option" value="from_popular">
+                  Сначала популярные
+                </option>
 
-            <ul class="card-view-list">
+              </select>
 
-              <li class="card-view-item">
+              <ul class="card-view-list">
 
-                <a class="card-view-link card-view-link__active
-                  card-view-link__tile"
-                  href="./catalog.html?view=tile">
-                  <span class="visually-hidden">Показать плитками</span>
-                </a>
+                <li class="card-view-item">
 
-              </li>
+                  <a class="card-view-link card-view-link__active
+                    card-view-link__tile"
+                    href="./catalog.html?view=tile">
+                    <span class="visually-hidden">Показать плитками</span>
+                  </a>
 
-              <li class="card-view-item">
+                </li>
 
-                <a class="card-view-link card-view-link__card"
-                  href="./catalog.html?view=card">
-                  <span class="visually-hidden">Показать карточками</span>
-                </a>
+                <li class="card-view-item">
 
-              </li>
+                  <a class="card-view-link card-view-link__card"
+                    href="./catalog.html?view=card">
+                    <span class="visually-hidden">Показать карточками</span>
+                  </a>
 
-              <li class="card-view-item">
+                </li>
 
-                <a class="card-view-link card-view-link__list"
-                  href="./catalog.html?view=list">
-                  <span class="visually-hidden">Показать списком</span>
-                </a>
+                <li class="card-view-item">
 
-              </li>
+                  <a class="card-view-link card-view-link__list"
+                    href="./catalog.html?view=list">
+                    <span class="visually-hidden">Показать списком</span>
+                  </a>
 
-            </ul>
+                </li>
+
+              </ul>
+
+            </div>
+
 
           </header>
 
@@ -387,8 +400,8 @@
 
               <a class="card-link card-link__image" href="#" tabindex="-1">
                 <img class="card-img" src="./images/hotel-3.jpg"
-                  width="300" height="212" alt="Вид на звездное небо
-                  из горного ущелья">
+                  width="300" height="212" alt="Лес перед горой, на фоне
+                  вечернего неба">
               </a>
 
               <p class="text text__small">Гостиница</p>
@@ -423,8 +436,7 @@
 
               <a class="card-link card-link__image" href="#" tabindex="-1">
                 <img class="card-img" src="./images/hotel-4.jpg"
-                  width="300" height="212" alt="Вид на звездное небо
-                  из горного ущелья">
+                  width="300" height="212" alt="Гора на фоне звездного неба">
               </a>
 
               <p class="text text__small">Гостиница</p>
@@ -505,7 +517,7 @@
               placeholder="Ваш e-mail" required>
 
             <button class="button button__big-text button__secondary
-              button__subscribe" type="button">
+              button__subscribe" type="submit">
               Подписаться
             </button>
 
@@ -553,6 +565,7 @@
 
         <a class="logo logo__html-academy"
           href="https://htmlacademy.ru/intensive/htmlcss">
+          <span class="visually-hidden">Ссылка на курс HtmlAcademy</span>
         </a>
 
       </footer>

@@ -363,7 +363,7 @@
 
       </footer>
 
-      <dialog class="modal" id="search-hotel">
+      <dialog class="modal" id="search-hotel" data-test="modal">
         <!-- модальное окно -->
 
         <button class="close-modal" type="button"
@@ -509,5 +509,11 @@
     </div>
 
   </body>
+
+  <script>
+    window.onload = function() {
+      document.getElementById('search-hotel').showModal();
+    };
+  </script>
 
 </html>
