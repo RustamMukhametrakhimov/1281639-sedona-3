@@ -885,6 +885,8 @@ body {
 .button__search-modal {
   grid-column: 1/-1;
   height: 60px;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 /* страница catalog.html */
