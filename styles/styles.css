@@ -412,7 +412,7 @@ body {
 /* секция hero */
 .hero {
   padding: 51px 0 82px;
-  background-color: var(--bg-main);
+  background-color: var(--bg-dark);
   background-image: url("../images/decorative/devider.svg"),
     url("../images/hero-background.jpg");
   background-position: bottom center;
@@ -583,7 +583,7 @@ body {
 }
 
 .subscribe__main {
-  background-color: var(--text-secondary);
+  background-color: var(--bg-dark);
   background-image: url("../images/subscribe.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -894,7 +894,7 @@ body {
 .catalog-section-header {
   min-height: 412px;
   padding: 35px 70px 70px;
-  background-color: var(--text-secondary);
+  background-color: var(--bg-dark);
   background-image: url("../images/cataloge-filter.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -1040,7 +1040,7 @@ body {
   background-position: center;
 }
 
-.checkbox-label:has( > .checkbox:hover) {
+.checkbox-label:has( > .checkbox:not(:disabled):hover) {
   opacity: 60%;
 }
 
@@ -1052,7 +1052,11 @@ body {
   outline: 3px solid var(--icon-secondary);
 }
 
-.checkbox-label:has( > .checkbox:active) {
+.checkbox-label:has( > .checkbox:not(:disabled):active) {
+  opacity: 30%;
+}
+
+.checkbox-label:has( > .checkbox:disabled) {
   opacity: 30%;
 }
 
@@ -1081,7 +1085,7 @@ body {
   background-position: center;
 }
 
-.radio-label:has( > .radio-button:hover) {
+.radio-label:has( > .radio-button:not(:disabled):hover) {
   opacity: 60%;
 }
 
@@ -1093,7 +1097,11 @@ body {
   outline: 3px solid var(--icon-secondary);
 }
 
-.radio-label:has( > .radio-button:active) {
+.radio-label:has( > .radio-button:not(:disabled):active) {
+  opacity: 30%;
+}
+
+.radio-label:has( > .radio-button:disabled) {
   opacity: 30%;
 }
 
@@ -1173,7 +1181,7 @@ body {
 }
 
 .range-toogle:not(:disabled):hover {
-  cursor: move;
+  cursor: pointer;
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -1228,7 +1236,7 @@ body {
 .catalog-select {
   width: 292px;
   height: 49px;
-  padding: 11px 18px;
+  padding: 11px 37px 11px 18px;
   appearance: none;
   border: 2px solid var(--form-elements-1);
   border-radius: 4px;
