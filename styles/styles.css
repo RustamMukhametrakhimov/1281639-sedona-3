@@ -80,7 +80,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 1200px;
-  height: 100%;
+  min-height: 100%;
   margin: 0 auto;
   background-color: var(--bg-basic);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -639,6 +639,7 @@ body {
   border: none;
   border-radius: 50%;
   right: 52px;
+  background-color: var(--form-elements-2);
 }
 
 .close-modal::after {
@@ -834,6 +835,7 @@ body {
   border: none;
   border-radius: 4px;
   position: relative;
+  background-color: transparent;
 }
 
 .button-count::after {
@@ -865,7 +867,8 @@ body {
 }
 
 .button-count:active::after {
-  background-color: var(--text-active);
+  background-color: var(--text-primary);
+  opacity: 30%;
 }
 
 .input__count {
@@ -1217,7 +1220,6 @@ body {
   display: flex;
   justify-content: space-between;
   min-height: 49px;
-  align-items:center;
   margin-bottom: 40px;
 }
 
@@ -1230,6 +1232,7 @@ body {
 .catalog-header-title {
   margin-right: auto;
   max-width: 530px;
+  padding-top: 7px;
 }
 
 
@@ -1266,6 +1269,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  max-width: 216px;
   margin: 0;
   padding: 0;
 }
